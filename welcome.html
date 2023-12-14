@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="berserk.ico">
+    <title>Efe Ata</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #4a4a4a;
+            animation: slide-in 1s ease-in-out;
+        }
+
+        @keyframes slide-in {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 5px;
+            max-width: 400px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            animation: fade-in 1s ease-in-out;
+        }
+
+        @keyframes fade-in {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        p {
+            font-size: 1.1em;
+            color: #4a4a4a;
+        }
+
+        input[type="text"] {
+            
+            padding: 12px;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            transition: border-color 0.3s ease-in-out;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #4CAF50;
+        }
+
+        button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        button:hover {
+            background-color: #3e8e41;
+        }
+
+        .error {
+            color: red;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="header">Hoşgeldin</div>
+    <div class="container">
+        <p>Adınızı girin:</p>
+        <input type="text" id="name" />
+        <button onclick="startQuiz()">Eğlenmeye Başla</button>
+        <div id="error" class="error"></div>
+    </div>
+
+    <script>
+        function startQuiz() {
+            var name = document.getElementById("name").value;
+            if (name === "") {
+                document.getElementById("error").innerHTML = "Lütfen bir isim girin.";
+            } else {
+                var message = "<p>Hoşgeldin, " + name + "!</p>";
+                message += "<p>Başlamak için aşağıdan testlere göz at 😁</p>";
+                message += "<button onclick='window.location.href=\"testpage.html\"'>Haydi başla 😁</button>";
+                document.querySelector(".container").innerHTML = message;
+            }
+        }
+    </script>
+</body>
+
+</html>

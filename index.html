@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Efe Ata</title>
+    <link id="theme-style" rel="stylesheet" href="light-theme.css">
+    <link rel="icon" type="image/png" href="berserk.ico">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            background-color: rgb(154, 237, 146);
+            padding: 30px;
+            border-radius: 5px;
+            max-width: 400px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            animation: fade-in 1s ease-in-out;
+        }
+
+        @keyframes fade-in {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #4a4a4a;
+            animation: slide-in 1s ease-in-out;
+        }
+
+        @keyframes slide-in {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+            animation: slide-up 1s ease-in-out;
+        }
+
+        @keyframes slide-up {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            padding: 12px;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            transition: border-color 0.3s ease-in-out;
+        }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+            outline: none;
+            border-color: #4CAF50;
+        }
+
+        button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        button:hover {
+            background-color: #3e8e41;
+        }
+
+        p {
+            font-size: 1.1em;
+            color: #4a4a4a;
+        }
+
+        a {
+            color: #4CAF50;
+        }
+
+        #theme-toggle {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+            animation: fade-in 1s ease-in-out;
+        }
+
+        #theme-toggle:hover {
+            background-color: #3e8e41;
+        }
+
+    </style>
+</head>
+
+<body>
+    <button id="theme-toggle">Tema Değiştir</button>
+    <div class="container">
+        <h1>Soru Platformu Deneme</h1>
+        <div class="form-group">
+            <label for="username">Kullanıcı Adı</label>
+            <input type="text" id="username" name="username" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Şifre</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <a href="welcome.html">
+            <button type="button">Öğrenci Olarak Giriş Yap</button>
+        </a>
+        <a href="welcome_teacher.html">
+            <button type="button">Öğretmen Olarak Giriş Yap</button>
+        </a>
+        <p>Hesabın yok mu? <a href="register.html">Kayıt Ol Öğrenci</a></p>
+        <p>Hesabın yok mu? <a href="register_teacher.html">Kayıt Ol Öğretmen</a></p>
+    </div>
+
+    <script>
+        const themeToggle = document.getElementById("theme-toggle");
+        const themeStyle = document.getElementById("theme-style");
+
+        function setTheme(theme) {
+            if (theme === "dark") {
+                themeStyle.href = "dark-theme.css";
+                themeToggle.textContent = "Açık Tema";
+                localStorage.setItem("theme", "dark");
+            } else {
+                themeStyle.href = "light-theme.css";
+                themeToggle.textContent = "Koyu Tema";
+                localStorage.setItem("theme", "light");
+            }
+        }
+
+        themeToggle.addEventListener("click", () => {
+            const currentTheme = themeStyle.getAttribute("href") === "light-theme.css" ? "light" : "dark";
+            setTheme(currentTheme === "light" ? "dark" : "light");
+        });
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const savedTheme = localStorage.getItem("theme");
+            if (savedTheme) {
+                setTheme(savedTheme);
+            }
+        });
+
+        
+    </script>
+</body>
+
+
+
+</html>
+

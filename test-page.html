@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Sayfası</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: #f2f2f2;
+        }
+        .header {
+        background-color: #4CAF50;
+        color: white;
+        padding: 20px;
+        text-align: center;
+        font-size: 1.5em;
+        font-weight: bold;
+        border-bottom: 5px solid #3e8e41;
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 50px auto;
+        padding: 40px;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1), 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .question {
+        margin-bottom: 20px;
+    }
+
+    .options {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .option {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        transition: transform 0.3s;
+    }
+
+    .option:hover {
+        transform: scale(1.05);
+    }
+
+    input[type="radio"] {
+        width: 20px;
+        height: 20px;
+        transition: transform 0.3s;
+    }
+
+    input[type="radio"]:hover {
+        transform: scale(1.2);
+    }
+
+    .submit-btn {
+        margin-top: 30px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 15px 32px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .submit-btn:hover {
+        background-color: #3e8e41;
+    }
+
+    .result-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 40px;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1), 0 10px 20px rgba(0, 0, 0, 0.2);
+        opacity: 0;
+        animation: fade-in 1s ease-in-out;
+    }
+
+    .result-container.show {
+        opacity: 1;
+    }
+
+    .success-message {
+        font-size: 2em;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    .redirect-message {
+        font-size: 1.2em;
+    }
+
+    .redirect-link {
+        color: #4CAF50;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s;
+    }
+
+    .redirect-link:hover {
+        color: #3e8e41;
+    }
+
+    .correct-answer {
+        color: #4CAF50;
+        font-weight: bold;
+    }
+
+    .wrong-answer {
+        color: #f44336;
+        font-weight: bold;
+    }
+
+    .checkmark {
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        background-image: url('https://cdn.jsdelivr.net/gh/samarsault/css-checkbox-library/assets/checkmark.svg');
+        background-size: cover;
+    }
+</style>
+</head>
+<body>
+    <div class="header">
+        <h1>Test Sayfası</h1>
+    </div>
+    <div class="container">
+        <form onsubmit="showResults(event)">
+            <div class="question">
+                <h3>1. Bir web dökümanında <a …= ”pascal” >Pascal Dersleri </a> ifadesinde … yerine aşağıdakilerden hangisi yazılmalıdır?</h3>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q1" value="A" class="correct">A) Name<span class="checkmark"></span></label>
+                    <label class="option"><input type="radio" name="q1" value="B">B) href</label>
+                    <label class="option"><input type="radio" name="q1" value="C">C) http</label>
+                </div>
+            </div>
+            <div class="question">
+                <h3>2. Domain Name nedir?</h3>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q2" value="A">A) İstemcinin IP adresinin sözel karşılığıdır</label>
+                    <label class="option"><input type="radio" name="q2" value="B" class="correct">B) Sunucunun IP adresinin sözel karşılığıdır<span class="checkmark"></span></label>
+                    <label class="option"><input type="radio" name="q2" value="C">C) Host Name ile eş anlamlıdır</label>
+                </div>
+            </div>
+            <div class="question">
+                <h3>3. Host Name nedir?</h3>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q3" value="A">A) Sunucunun IP adresinin sözel karşılığıdır.</label>
+                    <label class="option"><input type="radio" name="q3" value="B">B) Sunucunun adıdır</label>
+                    <label class="option"><input type="radio" name="q3" value="C" class="correct">C) İstemcinin adıdır<span class="checkmark"></span></label>
+                </div>
+            </div>
+            <div class="question">
+                <h3>4. Web sayfalarına yatay çizgi eklemek için hangi etiket kullanılır ?</h3>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q4" value="A" class="correct">A)  < hr> <span class="checkmark"></span></label>
+                    <label class="option"><input type="radio" name="q4" value="B">B) < line></label>
+                    <label class="option"><input type="radio" name="q4" value="C" >C) < line direction=”horizontal”></label>
+                </div>
+            </div>
+            <div class="question">
+                <h3>5. Hangi html kodu doğru bir şekilde kullanılmıştır.</h3>
+                <div class="options">
+                    <label class="option"><input type="radio" name="q5" value="A" >A)  < font colour=”red”> </label>
+                    <label class="option"><input type="radio" name="q5" value="B">B) < red>< font></label>
+                    <label class="option"><input type="radio" name="q5" value="C" class="correct">C) < font color=”red”><span class="checkmark"></span></label>
+                </div>
+            </div>
+            <button type="submit" class="submit-btn">Sonuçları Göster</button>
+        </form>
+    </div>
+    <div class="result-container" id="result-container">
+        <div class="success-message">Tebrikler!</div>
+        <div class="redirect-message">Testi başarıyla tamamladınız.</div>
+        <div class="redirect-message">Sonuçları görmek için <a href="result-page.html" class="redirect-link">buraya tıklayın</a>.</div>
+    </div>
+    <script>
+        function showResults(event) {
+            event.preventDefault();
+            const resultContainer = document.getElementById("result-container");
+            const questions = document.querySelectorAll('.question');
+            let isAllCorrect = true;
+    
+            questions.forEach(question => {
+                const selectedOption = question.querySelector('input[type="radio"]:checked');
+                if (!selectedOption) {
+                    isAllCorrect = false;
+                } else if (!selectedOption.classList.contains('correct')) {
+                    isAllCorrect = false;
+                } else {
+                    const label = selectedOption.parentElement;
+                    label.classList.add('correct-answer');
+                    const checkmark = document.createElement('span');
+                    checkmark.classList.add('checkmark');
+                    label.appendChild(checkmark);
+                }
+            });
+    
+            if (isAllCorrect) {
+                resultContainer.classList.add("show");
+            } else {
+                alert("Test tamamlandı! Tüm cevapları doğru seçmelisiniz.");
+            }
+        }
+    </script>
+</body>
+</html>    
