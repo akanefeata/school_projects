@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Test Sonuçları</title>
+  <style>
+    /* Genel Stil */
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    /* Başlık Stili */
+    h1 {
+      text-align: center;
+      color: #333;
+      margin-top: 50px;
+    }
+
+    /* Tablo Stili */
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-top: 30px;
+    }
+    
+    th, td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+    
+    /* Tablo Animasyonu */
+    @keyframes fade-in {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    table {
+      animation: fade-in 1s ease;
+    }
+  </style>
+</head>
+<body>
+  <h1>Test Sonuçları</h1>
+  
+  <table>
+    <tr>
+      <th>Öğrenci</th>
+      <th>Test Adı</th>
+      <th>Puan</th>
+    </tr>
+    <tr>
+      <td>Ahmet</td>
+      <td>HTML</td>
+      <td>85</td>
+    </tr>
+    <tr>
+      <td>Ayşe</td>
+      <td>CSS</td>
+      <td>92</td>
+    </tr>
+    <tr>
+      <td>Mehmet</td>
+      <td>JS</td>
+      <td>78</td>
+    </tr>
+  </table>
+
+  <script>
+    // Tablo animasyonunu tetikleyen JavaScript kodu
+    window.addEventListener('DOMContentLoaded', function() {
+      var table = document.querySelector('table');
+      table.style.opacity = '0';
+      table.style.transform = 'translateY(20px)';
+      
+      setTimeout(function() {
+        table.style.opacity = '1';
+        table.style.transform = 'translateY(0)';
+      }, 500);
+    });
+  </script>
+</body>
+</html>

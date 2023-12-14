@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Efe Ata</title>
+    <style>
+        /* Önceki CSS kodları */
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        .header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 1.5em;
+            font-weight: bold;
+            border-bottom: 5px solid #3e8e41;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 40px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1), 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .question-container {
+            margin-top: 20px;
+            border: 2px solid #4CAF50;
+            border-radius: 10px;
+            padding: 20px;
+            position: relative;
+            animation: fade-in 1s ease-in-out;
+        }
+
+        @keyframes fade-in {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .remove-question {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #f44336;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            padding: 5px 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .remove-question:hover {
+            background-color: #d32f2f;
+        }
+
+        .image-upload {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .image-upload input[type="file"] {
+            display: none;
+        }
+
+        .image-upload label {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 12px 20px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .image-upload label:hover {
+            background-color: #3e8e41;
+        }
+
+        .image-preview {
+            margin-left: 20px;
+            max-width: 200px;
+            overflow: hidden;
+        }
+
+        .image-preview img {
+            max-width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .answers-container {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+        }
+
+        .answer-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .answer-input {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            font-size: 1em;
+        }
+
+        .remove-answer-button {
+            background-color: #f44336;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            padding: 5px 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .remove-answer-button:hover {
+            background-color: #d32f2f;
+        }
+
+        .add-answer-button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 12px 20px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .add-answer-button:hover {
+            background-color: #3e8e41;
+        }
+
+        .button-row {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .add-question-button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 12px 20px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .add-question-button:hover {
+            background-color: #3e8e41;
+        }
+
+        .submit-button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 12px 20px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .submit-button:hover {
+            background-color: #3e8e41;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h1>Test Oluşturma Sayfası</h1>
+    </div>
+    <div class="container">
+        <form>
+            <div id="questions">
+                <div class="question-container">
+                    <div class="form-group">
+                        <label for="question-1">Soru 1</label>
+                        <input type="text" id="question-1" placeholder="Soruyu buraya yazın">
+                    </div>
+                    <div class="image-upload">
+                        <input type="file" id="image-1" accept="image/*">
+                        <label for="image-1">Resim Ekle</label>
+                        <div class="image-preview"></div>
+                    </div>
+                    <div class="answers-container">
+                        <div class="answer-group">
+                            <input type="text" class="answer-input" placeholder="Cevabı buraya yazın">
+                            <button type="button" class="remove-answer-button">X</button>
+                        </div>
+                    </div>
+                    <button type="button" class="add-answer-button">Cevap Ekle</button>
+                </div>
+            </div>
+            <div class="button-row">
+                <button type="button" class="add-question-button" onclick="addQuestion()">Soru Ekle</button>
+                <button type="submit" class="submit-button">Testi Kaydet</button>
+            </div>
+        </form>
+    </div>
+    <script>
+        let questionCount = 1;
+
+        function addQuestion() {
+            questionCount++;
+            const questionContainer = document.createElement("div");
+            questionContainer.classList.add("question-container");
+
+            const questionGroup = document.createElement("div");
+            questionGroup.classList.add("form-group");
+
+            const questionLabel = document.createElement("label");
+            questionLabel.htmlFor = `question-${questionCount}`;
+            questionLabel.textContent = `Soru ${questionCount}`;
+
+            const questionInput = document.createElement("input");
+            questionInput.type = "text";
+            questionInput.id = `question-${questionCount}`;
+            questionInput.placeholder = "Soruyu buraya yazın";
+
+            questionGroup.appendChild(questionLabel);
+            questionGroup.appendChild(questionInput);
+            questionContainer.appendChild(questionGroup);
+
+            const imageUpload = document.createElement("div");
+            imageUpload.classList.add("image-upload");
+
+            const imageInput = document.createElement("input");
+            imageInput.type = "file";
+            imageInput.id = `image-${questionCount}`;
+            imageInput.accept = "image/*";
+
+            const imageLabel = document.createElement("label");
+            imageLabel.htmlFor = `image-${questionCount}`;
+            imageLabel.textContent = "Resim Ekle";
+
+            const imagePreview = document.createElement("div");
+            imagePreview.classList.add("image-preview");
+
+            imageUpload.appendChild(imageInput);
+            imageUpload.appendChild(imageLabel);
+            imageUpload.appendChild(imagePreview);
+            questionContainer.appendChild(imageUpload);
+
+            const answersContainer = document.createElement("div");
+            answersContainer.classList.add("answers-container");
+
+            const answerGroup = document.createElement("div");
+            answerGroup.classList.add("answer-group");
+
+            const answerInput = document.createElement("input");
+            answerInput.type = "text";
+            answerInput.classList.add("answer-input");
+            answerInput.placeholder = "Cevabı buraya yazın";
+
+            const removeAnswerButton = document.createElement("button");
+            removeAnswerButton.textContent = "X";
+            removeAnswerButton.type = "button";
+            removeAnswerButton.classList.add("remove-answer-button");
+            removeAnswerButton.onclick = function () {
+                answerGroup.remove();
+            };
+
+            answerGroup.appendChild(answerInput);
+            answerGroup.appendChild(removeAnswerButton);
+            answersContainer.appendChild(answerGroup);
+            questionContainer.appendChild(answersContainer);
+
+            const addAnswerButton = document.createElement("button");
+            addAnswerButton.textContent = "Cevap Ekle";
+            addAnswerButton.type = "button";
+            addAnswerButton.classList.add("add-answer-button");
+            addAnswerButton.onclick = function () {
+                const newAnswerGroup = answerGroup.cloneNode(true);
+                newAnswerGroup.querySelector(".remove-answer-button").onclick = function () {
+                    newAnswerGroup.remove();
+                };
+                answersContainer.appendChild(newAnswerGroup);
+            };
+            questionContainer.appendChild(addAnswerButton);
+
+            const removeButton = document.createElement("button");
+            removeButton.textContent = "X";
+            removeButton.classList.add("remove-question");
+            removeButton.onclick = function () {
+                questionContainer.remove();
+            };
+            questionContainer.appendChild(removeButton);
+
+            document.getElementById("questions").appendChild(questionContainer);
+        }
+    </script>
+</body>
+
+</html>
